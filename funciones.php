@@ -1,4 +1,5 @@
 <?php 
+    //Funcion para las operaciones
     function operacion($op1,$sig,$op2){
         switch ($sig) {
             case '-':

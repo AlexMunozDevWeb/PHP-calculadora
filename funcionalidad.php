@@ -2,6 +2,7 @@
     session_start();
     require 'funciones.php';    
 
+    //Cambiar valor
     if(!empty($_GET["cambiarValor"])){
         if(!empty($_SESSION["resultado"])){
             $_SESSION["resultado"] = -$_SESSION["resultado"];
@@ -11,6 +12,7 @@
             $_SESSION["pantalla"] = $_SESSION["temporal"];
         }
     }
+    //Insertar numero
     if(isset($_GET['numero'])){
         if(!isset($_SESSION['temporal'])){
             $_SESSION['temporal'] = $_GET['numero'];  
@@ -27,6 +29,7 @@
         }
         $_SESSION['pantalla'] = $_SESSION['temporal'];
     }
+    //Destruye session, reinicia la operacion
     if(!empty($_GET["ce"])){
         session_destroy();
     }
@@ -42,6 +45,7 @@
             $_SESSION["pantalla"] = $_SESSION["resultado"];
         }
     }
+    //Operacion uno entre
     if(!empty($_GET["unoEntre"])){
         $_SESSION["signo"] = " / ";
         $_SESSION["operador1"] = 1;
@@ -53,6 +57,7 @@
         }
         $_SESSION["pantalla"] = $_SESSION["resultado"];
     }
+    // Verificar la coma
     if(!empty($_GET["coma"])){
         if(empty($_SESSION["resultado"])){
             if(strpos($_SESSION["temporal"],'.') == false){
@@ -67,6 +72,7 @@
             $_SESSION["temporal"] = '0.';
         }
     }
+    //Vacia el valor actual
     if(!empty($_GET["c"])){
         if(!empty($_SESSION["resultado"])){
 
@@ -75,6 +81,7 @@
             $_SESSION["pantalla"] = 0;
         }  
     }
+    //Borra ultima posicion
     if(!empty($_GET["retr"])){
         if(!empty($_SESSION["resultado"])){
             
@@ -87,6 +94,7 @@
             }
         }
     }
+    // Funcionalidad cuando se inserta un operador
     if(!empty($_GET["operador"])){
         if(!isset($_SESSION["temporal"])){
 
@@ -103,6 +111,7 @@
             $_SESSION["signo"] = $_GET["operador"];
         } 
     }
+    //Evalua el resultado
     if(!empty($_GET["botonIgual"])){
         if(empty($_SESSION["temporal"])){
 
